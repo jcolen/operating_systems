@@ -186,12 +186,21 @@ void finish_group(Group * curr, Snode * args, int total_args, int redirects)	{
 	while(tind < total_args)	{
 		if (strcmp(args->str, ">") == 0 || strcmp(args->str, "<") == 0)	{
 			int type = -1;	//0 for input, 1 for output
-			//From email sent by Prof Grimshaw: output must come after input, and only one of each redirect
 			if (strcmp(args->str, ">") == 0)	{
+				if(curr->redir_out)	{		//Only one of each redirect allowed
+					clear_all_snodes(args);
+					curr->cmd = NULL;
+					return;
+				}
 				type = 1;
 				curr->redir_out = (char*) malloc(sizeof(char) * 100);
 			} else	{
-				//Make sure output has not been set
+				if (curr->redir_in)	{
+					clear_all_snodes(args);
+					curr->cmd = NULL;
+					return;
+				}
+				//Make sure output has not been set since order matters according to Prof Grimshaw's email
 				if (curr->redir_out)	{
 					clear_all_snodes(args);
 					curr->cmd = NULL;
@@ -374,7 +383,7 @@ int execute_line(Group * line)	{
 
 			exec_err = execve(curr->cmd, curr->args, envp); 	
 			if (exec_err == -1)	{	//If the command did not exist or was called incorrectly
-				fprintf(stderr, "Command %s failed to execute\n", curr->cmd);
+				fprintf(stdout, "Command %s failed to execute\n", curr->cmd);
 				exit(1);	//
 			}
 		} else	{			//If parent process, store pid in the token group struct
@@ -427,10 +436,7 @@ int shell()	{
 	getcwd(cwd, 100);
 	
 	while(1)	{
-		if(isatty(0))	{	//System method that checks if input is coming from a terminal
-			//If input has been directed from an input file, no need to print >
-			fprintf(stdout, "> ");		//Collect input
-		}
+		fprintf(stdout, "> ");		//Collect input
 		if(fgets(input, sizeof input, stdin) == NULL)	{
 			return 0;
 		}

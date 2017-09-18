@@ -8,3 +8,4 @@ ls -l > | foo2
 ls -l > foo1 | foo2
 > foo
 ls > foo%
+asdfasdf

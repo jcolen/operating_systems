@@ -1,3 +1,4 @@
+HW1_jc8kf.doc
 Makefile
 hw1.pdf
 input_file.txt
@@ -7,14 +8,17 @@ shell.c
 struct_shell.c
 tarfiles
 test.txt
-/bin/ls exited with exit code 0
+> /bin/ls exited with exit code 0
 shell.c
 struct_shell.c
-/bin/ls exited with exit code 0
+> /bin/ls exited with exit code 0
 /bin/grep exited with exit code 0
 shell.c
 struct_shell.c
-/bin/ls exited with exit code 0
+> /bin/ls exited with exit code 0
 /bin/grep exited with exit code 0
 /bin/grep exited with exit code 0
-/bin/ls exited with exit code 0
+> > > /bin/ls exited with exit code 0
+> > > > > Command /home/jcolen19/cs4414/HW1/asdfasdf failed to execute
+> > > > > /home/jcolen19/cs4414/HW1/asdfasdf exited with exit code 0
+> 

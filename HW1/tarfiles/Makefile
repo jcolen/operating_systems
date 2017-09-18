@@ -1,6 +1,5 @@
-default:
-	gcc -o shell shell.c
-	gcc -o struct_shell struct_shell.c
+fault:
+	gcc -o msh shell.c
 
 clean:
-	rm shell
+	rm msh
