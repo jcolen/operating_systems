@@ -1,0 +1,9 @@
+Makefile
+hw1.pdf
+input_file.txt
+msh
+output_file.txt
+shell.c
+struct_shell.c
+tarfiles
+test.txt

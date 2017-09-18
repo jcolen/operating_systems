@@ -1,3 +1,10 @@
 /bin/ls
 /bin/ls | /bin/grep shell
 /bin/ls | /bin/grep shell | /bin/grep c
+/usr/bin/emacs |
+/usr/bin/emacs|
+/bin/ls > test.txt
+ls -l > | foo2
+ls -l > foo1 | foo2
+> foo
+ls > foo%

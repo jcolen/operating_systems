@@ -1,32 +1,20 @@
 Makefile
 hw1.pdf
 input_file.txt
+msh
 output_file.txt
-shell
 shell.c
-struct_shell
 struct_shell.c
 tarfiles
-shell
+test.txt
+/bin/ls exited with exit code 0
 shell.c
-struct_shell
 struct_shell.c
-shell.c
-struct_shell
-struct_shell.c
-Makefile
-hw1.pdf
-input_file.txt
-output_file.txt
-shell
-shell.c
-struct_shell
-struct_shell.c
-tarfiles
-> /bin/ls exited with exit code 0
-> /bin/ls exited with exit code 0
+/bin/ls exited with exit code 0
 /bin/grep exited with exit code 0
-> /bin/ls exited with exit code 0
+shell.c
+struct_shell.c
+/bin/ls exited with exit code 0
 /bin/grep exited with exit code 0
 /bin/grep exited with exit code 0
-> /bin/ls exited with exit code 0
+/bin/ls exited with exit code 0
