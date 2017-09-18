@@ -1,0 +1,32 @@
+Makefile
+hw1.pdf
+input_file.txt
+output_file.txt
+shell
+shell.c
+struct_shell
+struct_shell.c
+tarfiles
+shell
+shell.c
+struct_shell
+struct_shell.c
+shell.c
+struct_shell
+struct_shell.c
+Makefile
+hw1.pdf
+input_file.txt
+output_file.txt
+shell
+shell.c
+struct_shell
+struct_shell.c
+tarfiles
+> /bin/ls exited with exit code 0
+> /bin/ls exited with exit code 0
+/bin/grep exited with exit code 0
+> /bin/ls exited with exit code 0
+/bin/grep exited with exit code 0
+/bin/grep exited with exit code 0
+> /bin/ls exited with exit code 0

@@ -25,6 +25,7 @@ typedef struct token_group	{
 	char ** args;				//Stores the arguments
 	int num_args;				//Stores number of arguments
 	int pid;					//Stores pid of command process
+	int status;					//Stores exit status code of process
 	char * redir_out;			//Stores name of file for output redirection
 	char * redir_in;			//Stores name of file for input redirection
 	struct token_group * pipe_to;	//Stores the function to be piped to, or NULL if there is none
@@ -39,6 +40,7 @@ Group * create_empty_group()	{
 	ret->args = NULL;
 	ret->num_args = 0;
 	ret->pid = -1;
+	ret->status = -1;
 	ret->redir_out = NULL;
 	ret->redir_in = NULL;
 	ret->pipe_to = NULL;
@@ -311,7 +313,7 @@ int execute_line(Group * line)	{
 
 			exec_err = execve(curr->cmd, curr->args, envp); 	
 			if (exec_err == -1)	{	//If the command did not exist or was called incorrectly
-				fprintf(stderr, "Execution of instruction %s failed\n", curr->cmd);
+				fprintf(stderr, "Command %s failed to execute\n", curr->cmd);
 				exit(1);	//
 			}
 
@@ -334,15 +336,21 @@ int execute_line(Group * line)	{
 	while(curr)	{
 		//Wait for child process to exit and look at status code
 		waitpid(curr->pid, &status, 0);
+		curr->status = status;
+		curr = curr -> pipe_to;
+	}
+
+	//Print out exit codes now that all processes have completed
+	curr = line;
+	while(curr)	{
 		//Exit code is stored in lower 8 bits of status
-		fprintf(stderr, "Process %d executing command %s terminated with exit code:\t%d\n", curr->pid, curr->cmd, status & 0xFF);
+		fprintf(stdout, "%s exited with exit code %d\n", curr->cmd, curr->status & 0xFF);
 		curr = curr -> pipe_to;
 	}
 
 	return 0;
 }
 
-//TODO handle EOF input
 //Method which handles running the shell
 int shell()	{
 	int input_length = 100;
@@ -352,9 +360,12 @@ int shell()	{
 	getcwd(cwd, 100);
 
 	while(1)	{
-		printf("> ");		//Collect input
+		if(feof(stdin))	{
+			return 0;
+		}
+		fprintf(stdout, "> ");		//Collect input
 		fgets(input, sizeof input, stdin);
-
+		
 		//Need to check if the final character in the line is \n - if not then the line is too long
 		if (strlen(input) == 1 && input[0] == '\n')	{	//Ignore if line is empty and just a newline
 			continue;
@@ -369,13 +380,15 @@ int shell()	{
 			continue;
 		}
 
-		input[strlen(input) - 1] = '\0';	//terminate one character sooner because of \n
+		if(input[strlen(input)-1] == '\n')	{
+			input[strlen(input) - 1] = '\0';	//terminate one character sooner because of \n
+		}
 		if(strcmp(input, "exit") == 0)	{	//terminate program if command is exit
-			return 1;
+			return 0;
 		}
 		line = parse_line(input, cwd);	//a pointer to the first command in the line
 		if (!(line->cmd))	{			//line->cmd = NULL is code for "this line has an error"
-			printf("Command entered was invalid\n");
+			fprintf(stderr, "Command entered was invalid\n");
 			//Make sure to clear the memory associated with line
 			clear_all_groups(line);
 			continue;

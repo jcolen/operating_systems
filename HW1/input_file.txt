@@ -1,0 +1,3 @@
+/bin/ls
+/bin/ls | /bin/grep shell
+/bin/ls | /bin/grep shell | /bin/grep c
