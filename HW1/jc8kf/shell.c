@@ -144,11 +144,12 @@ void clear_all_snodes(Snode * curr)	{
 *	Clear all memory associated with a series of linked token groups
 */
 void clear_all_groups(Group * curr)	{
+	int i;
 	Group * tmp = curr;
 	while(curr)	{
 		tmp = curr -> pipe_to;
 		free(curr->cmd);
-		for (int i = 0; i < curr->num_args; i ++)	{
+		for (i = 0; i < curr->num_args; i ++)	{
 			free((curr->args)[i]);
 		}
 		free(curr->args);
@@ -436,10 +437,11 @@ int shell()	{
 	getcwd(cwd, 100);
 	
 	while(1)	{
-		fprintf(stdout, "> ");		//Collect input
+		printf("> ");		//Collect input
 		if(fgets(input, sizeof input, stdin) == NULL)	{
 			return 0;
 		}
+		fflush(stdout);	//Make sure > is flushed in case there is batch input or else things will print oddly
 		//Need to check if final character in the line is \n - if not then the line is too long
 		if (strlen(input) == 1 && input[0] == '\n')	{	//Ignore if line is empty 
 			continue;
