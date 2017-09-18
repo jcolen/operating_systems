@@ -1,0 +1,33 @@
+Intro to C Lectures for CS 4414
+
+C Program contains text (program text), initialized/uninitialized data, the stack, and the heap
+	Stack grows down and heap grows up (be careful about memory allocation because of this)
+	This actually means that the stack grows down from high addresses and the heap grows up from low adddresses (0x00000000)
+
+Stack stores local variables, temporary variables, arguments for next function call, and return address for a function
+One stack frame is created each time the function is called, and is destroyed when the function ends
+	A problem can arise when a pointer to a local variable is returned, since the memory that is pointed to is deallocated after the function return.
+	It is also possible to run out of stack space, or unintentionally change values on the stack
+		For example, it would be bad to change the return address of a function
+	It is also possible to access memory even after the stack frame is deallocated.
+
+The Heap is separate from the execution stack
+	The heap is dynamically allocated and deallocated during execution (malloc, free)
+	Local variables can point to locations on the heap
+
+	malloc - library function in stdlib.h and allocates memory of specified size and returns void*
+		void* malloc(int size)	// void* is a generic pointer size
+		Useful to cast malloc return value as whatever type is necessary (for arithmetic purposes)
+		MUST check the return value of malloc (if NULL, it failed and cleanup is needed)
+		MUST explicitly free memory when no longer in use using free(pointer);
+	If you run out of heap space, malloc will return 0 - check for this
+	It is possible to unintentionally change other heap data
+	Accessing memory after it has been freed can be an issue, as well as freeing memory twice
+		good to use following construct when freeing to avoid these issues
+		if (p != NULL)	{
+			free(p);	//Recall free deallocates the memory associated with p, it doesn't unset p
+			p = NULL;
+		}
+
+Pointers make garbage collection in C difficult, so it is entirely the user's responsibility with free
+

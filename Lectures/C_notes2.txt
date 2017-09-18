@@ -1,0 +1,48 @@
+C-Basics Session II: I/O and Pointers
+
+I/O Basics
+	I/O is done one character/byte at a time
+	stream - a sequence of characters flowing from one place to another
+	stdin - standard input stream
+	stdout - standard output stream
+	stderr - standard error stream
+
+	Formatted I/O is the conversion of data to and from a stream of characters, for printing/reading in plain text format
+		Text I/O is formatted
+		The other option is reading/writing direct binary information
+
+	scanf - reads from stdin
+		scanf("format string", list of addresses);
+		scanf("Input number:\t%d", &num); 
+		The above accepts an integer input and stores it in the address of num
+	printf - prints to stdout
+		printf("format string", list of expressions);
+		printf("Course number is %d", 4414);
+
+Pointers
+	A pointer is a variable whose value is the address of another variable
+	& is used for referencing and * is used for dereferencing pointers
+
+	Some pointers don't contain an address - a NULL pointer contains 0
+		You can't dereference a NULL pointer
+		Can check if a pointer is assigned (i.e. not NULL) using
+		if(a) {}	//will not execute if a is NULL
+	
+	A void pointer is a pointer with no associated data type
+		It can hold any type of address and can be casted
+		malloc, calloc return void* and can allocate any type
+
+File I/O
+	FILE * fopen(const char * filename, const char * mode);
+		e.g. FILE * file = fopen("filename.txt", 'r'); //opens filename.txt for reading
+	int fclose(FILE * fp)	//returns 0 if file is closed successfully
+
+Arrays - a data structure than can store a fixed-size sequential collection of same-type elements
+
+Structure - a user defined data type available in C allowing items of different kinds to be combined
+	structs [structure tag] {
+		member definition;
+		member definition;
+		...
+	}
+	One or more structure variables. Very similar to classes in Java
