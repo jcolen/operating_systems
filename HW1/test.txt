@@ -2,9 +2,11 @@ HW1_jc8kf.doc
 Makefile
 hw1.pdf
 input_file.txt
+jc8kf
+jc8kf.tar
 msh
 output_file.txt
 shell.c
 struct_shell.c
-tarfiles
+test
 test.txt
