@@ -8,8 +8,8 @@
 *	The purpose of this program is to simulate a shell. Commands can be input via stdin
 *	and they will be executed. This shell supports file redirection and piping. All 
 *	commands specified will be assumed to be executable files in the local directory, 
-*	otherwise, the full path will be provided. Output via stderr will be shown in the 
-*	event the command does not execute.
+*	otherwise, the full path will be provided. Output via stdout will be shown in the 
+*	event the command does not execute (formerly stderr, changed due to email).
 *
 *	This program can be compiled via
 *		gcc -o msh shell.c
@@ -369,7 +369,7 @@ int execute_line(Group * line)	{
 			} else if (curr->redir_in)	{
 				fin = open(curr->redir_in, O_RDONLY);
 				if (fin == -1)	{		//Issue opening file
-					fprintf(stderr, "Error opening file %s\n", curr->redir_in);
+					fprintf(stdout, "Error opening file %s\n", curr->redir_in);
 					exit(1);
 				}
 				dup2(fout, 0);
@@ -437,7 +437,7 @@ int shell()	{
 	getcwd(cwd, 100);
 	
 	while(1)	{
-		printf("> ");		//Collect input
+		printf(">");		//Collect input
 		if(fgets(input, sizeof input, stdin) == NULL)	{
 			return 0;
 		}
@@ -451,7 +451,7 @@ int shell()	{
 			while(input[strlen(input) - 1] != '\n')	{	//continue to read string until done
 				fgets(input, sizeof input, stdin);
 			}
-			fprintf(stderr, "Input line longer than limit of %d characters\n", input_length);
+			fprintf(stdout, "Input line longer than limit of %d characters\n", input_length);
 			continue;
 		}
 
@@ -465,7 +465,7 @@ int shell()	{
 		strcpy(input_cpy, input);
 		line = parse_line(input, cwd);	//a pointer to the first command in the line
 		if (!(line->cmd))	{			//line->cmd = NULL is code for "this line has an error"
-			fprintf(stderr, "Command \"%s\" is invalid\n", input_cpy);
+			fprintf(stdout, "Command \"%s\" is invalid\n", input_cpy);
 			//Make sure to clear the memory associated with line
 			clear_all_groups(line);
 			continue;

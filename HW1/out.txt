@@ -1,0 +1,11 @@
+HW1_jc8kf.doc
+Makefile
+hw1.pdf
+input_file.txt
+msh
+out.txt
+output_file.txt
+shell.c
+struct_shell.c
+tarfiles
+test.txt
