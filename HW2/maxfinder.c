@@ -5,6 +5,8 @@
 #include <semaphore.h>
 #include <math.h>
 
+//TODO switch int comparisons with floats
+
 typedef struct int_node	{
 	int val;
 	struct int_node * next;
