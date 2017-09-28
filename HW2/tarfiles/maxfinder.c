@@ -30,7 +30,7 @@
 *	This structure was used to simplify input parsing
 */
 typedef struct int_node	{
-	float val;
+	int val;
 	struct int_node * next;
 } Inode;
 
@@ -53,7 +53,7 @@ typedef struct barrier	{
 *	thread is responsible for, and a pointer to the Barrier struct being used.
 */
 typedef struct arg_struct	{
-	float * array;	//Pointer to the array being searched
+	int * array;	//Pointer to the array being searched
 	int N;			//Stores the length of the array
 	int index;		//Stores the array index the thread is responsible for comparing/storing into
 	Barrier * bar;	//Pointer to the barrier
@@ -102,7 +102,7 @@ void bar_wait(Barrier * bar)	{
 *	Flatten a linked list into an array. Useful here since the array gives O[1] access
 *	for each thread rather than O[n] access for a linked list.
 */
-void ll_to_array(float * arr, Inode * ll)	{
+void ll_to_array(int * arr, Inode * ll)	{
 	Inode * head = ll;
 	int count = 0;
 	while (head)	{
@@ -119,7 +119,7 @@ void ll_to_array(float * arr, Inode * ll)	{
 int load_input(Inode * ll)	{
 	int input_length = 100;		//No number should be longer than this, right?
 	char input[input_length];
-	float val;					//Stores the numerical input values
+	int val;					//Stores the numerical input values
 	int count = 0;				//Keeps track of how many values have been read in
 	Inode * curr = ll;			//Pointer to the current linked list node
 
@@ -127,7 +127,7 @@ int load_input(Inode * ll)	{
 		if(fgets(input, sizeof input, stdin) == NULL)	{	//If EOF, return
 			return count;
 		}
-		if(sscanf(input, "%f", &val)  < 1 || input[0] == '\n')	{
+		if(sscanf(input, "%d", &val)  < 1 || input[0] == '\n')	{
 			return count;	//Return if pattern not matched or empty line is found
 		}
 		
@@ -171,7 +171,7 @@ void * find_max_thread(void * arg)	{
 *	After all threads have finished, the value will be stored in array[0], which will
 *	be returned.
 */
-float find_max(float * array, int count)	{
+int find_max(int * array, int count)	{
 	Argstruct args[count / 2];	//Argument structures for each thread
 	pthread_t tids[count / 2];	//IDs for each thread to be used in pthread_join
 	pthread_attr_t attr;		//Attributes for the threads
@@ -204,7 +204,7 @@ int main()	{
 	Inode * input = (Inode*)malloc(sizeof(Inode));	//Linked list for input reading
 
 	count = load_input(input);	//Load input into linked list
-	float * array = (float*)malloc(sizeof(float) * count);	//Allocate necessary memory for array
+	int * array = (int*)malloc(sizeof(int) * count);	//Allocate necessary memory for array
 	ll_to_array(array, input);	//Flatten linked list into array
 	//Free the Inodes now
 	Inode * tmp = input;
@@ -215,8 +215,8 @@ int main()	{
 	}
 
 	//Find max and print it out
-	float max = find_max(array, count);
-	printf("%f\n", max);
+	int max = find_max(array, count);
+	printf("%d\n", max);
 
 	return 0;
 }
