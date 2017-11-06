@@ -63,11 +63,21 @@ int main()  {
 	int offset = 0;
 	char * buff = malloc(sizeof(char) * nbytes);
 	int bread = OS_read(fd, buff, nbytes, offset);
+    if(bread < nbytes)
+        buff[bread] = '\0';
 	printf("%s\n", buff);
-	printf("\nmain::\tBytes Read:\t%d\n\n", bread);
+	printf("\nmain:\tBytes Read:\t%d\n\n", bread);
 
 	fd = OS_close(fd);
 	printf("\nmain:\tClose status:\t%d\n\n", fd);
+
+    fd = OS_open("/Congrats.txt");
+    bread = OS_read(fd, buff, nbytes, offset);
+    if(bread < nbytes)  
+        buff[bread] = '\0';
+    
+    printf("%s\n", buff);
+    OS_close(fd);
 
     return 0;
 }

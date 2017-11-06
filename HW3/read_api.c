@@ -390,8 +390,10 @@ int findDirEntry(DIRENTRY * dest, const DIRENTRY * current, char * name)    {
         printf("findDirEntry:\tFull File Name:\t%s\n", lfilename);
         
         if(strcmp(lfilename, name) == 0)   {   //Filename match
+            printf("findDirEntry:\tMatch found\n");
             free(lfilename);
             *dest = de;
+            printf("findDirEntry:\tReturning a value\n");
             return 1;
         }
 
@@ -484,22 +486,32 @@ int OS_open(const char * path)  {
     pathname = getRemaining(pathname, path);
     filename = getFirstElement(filename, path);
 
+    printf("OS_open:\t%s\t%s\n", filename, pathname);
+
     while (pathname != NULL) {
         buff = pathname;
+        printf("OS_open:\t%s\t%s\t%s\t%d\n", filename, pathname, buff, pathname == NULL);
         filename = getFirstElement(filename, buff);
         pathname = getRemaining(pathname, buff);
-        free(buff);
+        printf("OS_open:\t%s\t%s\t%s\t%d\n", filename, pathname, buff, pathname == NULL);
     }
 
+    free(buff);
 
     pathname = malloc(sizeof(char) * strlen(path));
     int pathlen = strstr(path, filename) - path;
+    printf("OS_open:\t%d\n", pathlen);
     strncpy(pathname, path, pathlen);
+    pathname[pathlen] = '\0';
 
     printf("OS_open:\tOpening %s in %s\n", filename, pathname);
     
     DIRENTRY * current = OS_readDir(pathname);
-    
+   
+    printf("OS_open:\tDirectory at %s read\n", pathname);
+
+    printf("OS_open:\t%d\n", current == NULL);
+
     DIRENTRY file;
     if (!findDirEntry(&file, current, filename))
         return -1;
@@ -542,6 +554,7 @@ int OS_close(int fd) {
 
 /**
 * TODO Figure out if we need to count bytes up to end of cluster/nbytes
+* TODO Do we need to null terminate the end of buf or not?
 * or up to EOF in file if that's first. Or if end of cluster is EOF
 * Read nbytes of a file from offset into buf
 * @param fildes A previously opened file
@@ -636,11 +649,21 @@ DIRENTRY * OS_readDir(const char * dirname)  {
 
     DIRENTRY * current = cwd_entries;
 
+    const char * truncated_dirname;
+
     //If absolute path name start path at /
-    if (dirname[0] == '/') 
+    if (dirname[0] == '/') {
         current = root_entries;
+        truncated_dirname = dirname + 1;
+    } else  {
+        truncated_dirname = dirname;
+    }
 
     printf("OS_readDir:\tCurrent is Root:\t%d\n", current == root_entries);
 
-    return findDir(dirname, current);
+    DIRENTRY * ret = findDir(truncated_dirname, current);
+    if (ret == NULL && strlen(truncated_dirname) == 0)
+        return current;
+
+    return ret;
 }
