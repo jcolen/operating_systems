@@ -14,75 +14,6 @@
 #define NUM_FD 100
 
 /**
-* Structure representing a long directory entry name
-*/
-typedef struct __attribute__((__packed__)) FAT_LONG_DIRENTRY    {
-    char LDIR_Ord;              //Order of this entry in the sequence. 0x4N means last in the sequence
-    short int LDIR_Name1[5];    //First 5 2-byte characters in this subcomponent
-    char LDIR_Attr;             //Must be ATTR_LONG_NAME
-    char LDIR_Type;             //0 implies sub-component of long name
-    char LDIR_Chksum;           //Checksum of name in short dir name
-    short int LDIR_Name2[6];    //Characters 6-11 of subcomponent
-    short int LDIR_FstClusLO;   //Must be ZERO
-    short int LDIR_Name3[2];    //Characters 12-13 of subcomponent
-} LDIR;
-
-/**
-* Structure representing the Bios Partition Block
-* NOTE: Without __attribute__((__packed__)), the size of this struct
-* is set to 40 instead of 36 and the BPB is not loaded correctly
-* NOTE: All values are stored in little-endian format, so they must 
-* be converted to big_endian upon loading
-*/
-typedef struct __attribute__((__packed__)) FAT_BS_BPB_Structure {
-    char BS_jmpBoot[3];
-    char BS_OEMName[8];
-    short int BPB_BytsPerSec;   //Number of bytes per sector
-    char BPB_SecPerClus;        //Number of sectors per cluster (power of two)
-    short int BPB_RsvdSecCnt;   //Number of reserved sectors in the reserved region
-    char BPB_NumFATs;           //The number of FAT data structures - 2 for redundancy
-    short int BPB_RootEntCnt;   //The number of 32-byte directory entries in the root directory
-    short int BPB_TotSec16;     //16-bit total count of sectors on the volume (0 for FAT32)
-    char BPB_Media;             //0xF8 is standard value for fixed media. 0xF0 is for removable
-    short int BPB_FATSz16;      //16-bit count of sectors occupied by a single FAT (0 for FAT32)
-    short int BPB_SecPerTrk;    //Sectors per track for the read operation
-    short int BPB_NumHeads;     //Number of heads for the read operation 
-    int BPB_HiddSec;            //Number of hidden sectors preceding partition containing FAT volume
-    int BPB_TotSec32;           //32-bit count of sectors on the volume
-} BPB_Structure;
-
-/**
-* Extended Boot Record for FAT16 volumes
-*/
-typedef struct __attribute__((__packed__)) FAT16_BS_EBR_Structure   {
-    char BS_DrvNum;
-    char BS_Reserved1;
-    char BS_BootSig;
-    int BS_VolID;
-    char BS_VolLab[11];
-    char BS_FilSysType[8];
-} EBR_FAT16;
-
-/**
-* Extended Boot Record for FAT32 volumes
-*/
-typedef struct __attribute__((__packed__)) FAT32_BS_EBR_Structure   {
-    int BPB_FATSz32;
-    short int BPB_ExtFlags;
-    short int BPB_FSVer;
-    int BPB_RootClus;
-    short int BPB_FSInfo;
-    short int BPB_BkBootSec;
-    char BPB_Reserved[12];
-    char BS_DrvNum;
-    char BS_Reserved1;
-    char BS_BootSig;
-    int BS_VolID;
-    char BS_VolLab[11];
-    char BS_FilSysType[8];
-} EBR_FAT32;
-
-/**
 * Global variables
 */
 
@@ -93,6 +24,7 @@ EBR_FAT16 ebr_fat16;        //Stores the extended boot record for FAT16 volumes
 EBR_FAT32 ebr_fat32;        //Stores the extended boot record for FAT32 volumes
 int root_sec;               //Sector of the Root directory
 int data_sec;               //Sector of the data section after Root
+char cwd_name[100];         //Stores name of path to current working directory
 dirEnt * root_entries;    //Stores the dirENTRY values in the root directory
 dirEnt * cwd_entries;     //Represents current working directory
 
@@ -189,12 +121,16 @@ dirEnt * read_cluster_dirEnt(int cluster)    {
         if (fsys_type == 0x01)  {
             sector = root_sec;
         } else if (fsys_type == 0x02)   {
-            curr = ebr_fat32.BPB_RootClus;
+            cluster = ebr_fat32.BPB_RootClus;
             sector = (curr - 2) * bpb_struct.BPB_SecPerClus + data_sec;
         }
     }
 
     int chain_length = cluster_chain_length(cluster);
+
+    printf("read_cluster_dirEnt:\tCluster:\t%d\tSector:\t%d\tByte:\t%x\n", 
+        cluster, sector, sector * bpb_struct.BPB_BytsPerSec);
+    printf("read_cluster_dirEnt:\tChain Length:\t%d\n", chain_length);
 
     int num_entries = chain_length * bpb_struct.BPB_SecPerClus * 
         bpb_struct.BPB_BytsPerSec / sizeof(dirEnt);
@@ -207,6 +143,12 @@ dirEnt * read_cluster_dirEnt(int cluster)    {
         read(fat_fd, (char*)&(entries[entry_count]), sizeof(dirEnt));
         if(((char*)&entries[entry_count])[0] == 0)  //First byte 0 means no more
             break;
+        printf("read_cluster_dirEnt:\tEntry:\t%.11s\t0x%02x\t%d\t%d\t%d\n", 
+            entries[entry_count].dir_name,
+            entries[entry_count].dir_attr,
+            entries[entry_count].dir_fstClusHI,
+            entries[entry_count].dir_fstClusLO,
+            entries[entry_count].dir_fileSize);
         entry_count ++;
         cluster_count ++;
         //If we've read past the end of the cluster, we need to follow the chain
@@ -252,6 +194,7 @@ int init_fat()   {
     int RootDirSectors = ((bpb_struct.BPB_RootEntCnt * 32) + 
         (bpb_struct.BPB_BytsPerSec -1)) / bpb_struct.BPB_BytsPerSec;
     
+    printf("init_fat:\tRoot Sectors: %d Root Entries: %d Bytes Per Sector: %d\n", RootDirSectors, bpb_struct.BPB_RootEntCnt, bpb_struct.BPB_BytsPerSec);
 
     int FATSz, TotSec;
     if (bpb_struct.BPB_FATSz16 != 0)
@@ -259,38 +202,56 @@ int init_fat()   {
     else
         FATSz = ebr_fat32.BPB_FATSz32;
 
+    printf("init_fat:\tFAT Size:\t%d\n", FATSz);
+
     if (bpb_struct.BPB_TotSec16 != 0)
         TotSec = bpb_struct.BPB_TotSec16;
     else
         TotSec = bpb_struct.BPB_TotSec32;
 
+    printf("init_fat:\tTotal Sectors:\t%d\n", TotSec);
+
     int DataSec = TotSec - (bpb_struct.BPB_RsvdSecCnt + 
         (bpb_struct.BPB_NumFATs * FATSz) + RootDirSectors);
     int CountofClusters = DataSec / bpb_struct.BPB_SecPerClus;
+
+    printf("init_fat:\tCount of Clusters:\t%d\n", CountofClusters);
 
     if (CountofClusters < 4085) {   //Volume is FAT12 - exit
         return -1;
     } else if (CountofClusters < 65525) {   //Volume is FAT16
         fsys_type = 0x01;
+        printf("init_fat:\tFAT16 Volume\n");
     } else  {   //Volume is FAT32
         fsys_type = 0x02;
+        printf("init_fat:\tFAT32 Volume\n");
     }
 
     //Initialize more global variables
     root_sec = bpb_struct.BPB_RsvdSecCnt +
         (bpb_struct.BPB_NumFATs * FATSz);
     data_sec = root_sec + RootDirSectors;
+    strcpy(cwd_name, "/");
    
+    printf("init_fat:\tRoot Byte: %x Data Byte: %x\n", root_sec * bpb_struct.BPB_BytsPerSec, data_sec * bpb_struct.BPB_BytsPerSec);
+
     //Load in root directory
     if (fsys_type == 0x01)  {   //FAT16
         root_entries = (dirEnt *) malloc(sizeof(dirEnt) *
             bpb_struct.BPB_RootEntCnt);
         lseek(fat_fd, root_sec * bpb_struct.BPB_BytsPerSec, SEEK_SET);
         int entry_count = 0;
+        printf("init_fat:\tNumber of Root Entries:\t%d\n", bpb_struct.BPB_RootEntCnt);
         while (entry_count < bpb_struct.BPB_RootEntCnt)  {
             read(fat_fd, (char*)&(root_entries[entry_count]), sizeof(dirEnt));
             if (((char*)&root_entries[entry_count])[0] == 0)    //First byte 0 means no more to read
                 break;
+            printf("init_fat:\tRoot Entry:\t%.11s\t%02x\t%d\t%d\t%d\n",
+                root_entries[entry_count].dir_name, 
+                root_entries[entry_count].dir_attr,
+                root_entries[entry_count].dir_fstClusHI,
+                root_entries[entry_count].dir_fstClusLO,
+                root_entries[entry_count].dir_fileSize);
             entry_count ++;
         }
     } else if (fsys_type == 0x02)   {   //FAT32
@@ -423,6 +384,8 @@ int findDirEntry(dirEnt * dest, const dirEnt * current, char * name, int directo
             continue;
         }
 
+        //printf("findDirEntry:\tEntry Name:\t%.11s\n", de.dir_name);
+
         if (lfilename == NULL)  {   //Parse the short filename
             lfilename = malloc(sizeof(char) * 11);
             lfilename[0] = '\0';    //Null terminate for concatenations
@@ -439,11 +402,14 @@ int findDirEntry(dirEnt * dest, const dirEnt * current, char * name, int directo
             else
                 strncat(lfilename, de.dir_name + 8, padding - de.dir_name - 8);
         }
+        //printf("findDirEntry:\tFull File Name:\t%s\n", lfilename);
         
         if(strcmp(lfilename, name) == 0)   {   //Filename match
             if (!directory || (directory && de.dir_attr & 0x10))    {
+                printf("findDirEntry:\tMatch found\n");
                 free(lfilename);
                 *dest = de;
+                printf("findDirEntry:\tReturning a value\n");
                 return 1;
             }
         }
@@ -471,20 +437,24 @@ dirEnt * findDir(const char * path, const dirEnt * current)   {
     remaining = (char*) malloc(sizeof(char) * strlen(path));
     first = getFirstElement(first, path);
     remaining = getRemaining(remaining, path);
+    printf("findDir:\t%s %s %s\n", path, first, remaining);
 
     //Locate first element in current directory
     dirEnt dir_Ent;
     if (!findDirEntry(&dir_Ent, current, first, 1)) {
+        printf("findDir:\tNo Match found\n");
         return NULL;
     }
 
     //Load in next directory and recurse down
     int cluster = (dir_Ent.dir_fstClusHI << 2) | dir_Ent.dir_fstClusLO;
+    printf("findDir:\tMatch found:\t%.11s\tCluster:\t%d\n", dir_Ent.dir_name, cluster);
     dirEnt * next_dir = read_cluster_dirEnt(cluster);
     dirEnt * ret = findDir(remaining, next_dir);
     int no_more_path = (remaining == NULL || strlen(remaining) == 0);
     free(first);
     free(remaining);
+    printf("findDir:\tRet is NULL and no more path:\t%d\n", ret == NULL && no_more_path);
     if (ret == NULL && no_more_path)    {
         return next_dir;
     }
@@ -538,21 +508,32 @@ int OS_open(const char * path)  {
     pathname = getRemaining(pathname, path);
     filename = getFirstElement(filename, path);
 
+    printf("OS_open:\t%s\t%s\n", filename, pathname);
+
     while (pathname != NULL) {
         buff = pathname;
+        printf("OS_open:\t%s\t%s\t%s\t%d\n", filename, pathname, buff, pathname == NULL);
         filename = getFirstElement(filename, buff);
         pathname = getRemaining(pathname, buff);
+        printf("OS_open:\t%s\t%s\t%s\t%d\n", filename, pathname, buff, pathname == NULL);
     }
 
     free(buff);
 
     pathname = malloc(sizeof(char) * strlen(path));
     int pathlen = strstr(path, filename) - path;
+    printf("OS_open:\t%d\n", pathlen);
     strncpy(pathname, path, pathlen);
     pathname[pathlen] = '\0';
 
-    dirEnt * current = OS_readDir(pathname);
+    printf("OS_open:\tOpening %s in %s\n", filename, pathname);
     
+    dirEnt * current = OS_readDir(pathname);
+   
+    printf("OS_open:\tDirectory at %s read\n", pathname);
+
+    printf("OS_open:\t%d\n", current == NULL);
+
     dirEnt file;
     if (!findDirEntry(&file, current, filename, 0))
         return -1;
@@ -566,6 +547,8 @@ int OS_open(const char * path)  {
 
     fd_base[fd] = (file.dir_fstClusHI << 2) | (file.dir_fstClusLO);
     fd_dirEnt[fd] = file;
+
+    printf("OS_open:\tFile Size:\t%d\n", file.dir_fileSize);
 
     return fd;
 }
@@ -640,6 +623,8 @@ int OS_read(int fildes, void * buf, int nbyte, int offset)  {
     int sector = (cluster - 2) * bpb_struct.BPB_SecPerClus + data_sec;
     lseek(fat_fd, sector * bpb_struct.BPB_BytsPerSec + cluster_offset, SEEK_SET);
 
+    printf("OS_read:\tFile Size:\t%d\n", fd_dirEnt[fildes].dir_fileSize);
+
     int untilEOF = fd_dirEnt[fildes].dir_fileSize - bytesRead - offset;
     int untilEOC = bytesPerClus - cluster_offset - bytesRead;
 
@@ -696,11 +681,16 @@ dirEnt * OS_readDir(const char * dirname)  {
         truncated_dirname = dirname;
     }
 
+    printf("OS_readDir:\tCurrent is Root:\t%d\n", current == root_entries);
+
     dirEnt * ret = findDir(truncated_dirname, current);
+    printf("OS_readDir:\tRet is NULL:\t%d\n", ret == NULL);
     if (ret == NULL && strlen(truncated_dirname) == 0)  {
         return current;
+        printf("OS_readDir:\tReturning pointer to current directory\n");
     }
     else if (ret == NULL)   {
+        printf("OS_readDir:\tReturning NULL\n");
         return NULL;
     }
     return ret;

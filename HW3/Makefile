@@ -1,18 +1,8 @@
 default:
 	gcc -o libFAT.o -c -fpic read_api.c
-	gcc -shared -o libFAT.so libFAT.o 
+	gcc -shared -o libFAT16.so libFAT.o 
+	cp libFAT16.so libFAT32.so
 	rm *.o
-
-export LD_LIBRARY_PATH=/home/jcolen19/cs4414/HW3:$$LD_LIBRARY_PATH
-export FAT_FS_PATH=/home/jcolen19/cs4414/HW3/sampledisk16.raw
-#export FAT_FS_PATH=/home/jcolen19/cs4414/HW3/sampledisk32.raw
-test:
-	gcc test.c -L/home/jcolen19/cs4414/HW3 -lFAT
-	./a.out
-
-debug:
-	gcc test.c -L/home/jcolen19/cs4414/HW3 -lFAT
-	ddd ./a.out
 
 clean: 
 	rm libFAT.so	

@@ -1,0 +1,225 @@
+main:	Size of dirEnt: 32
+main:	Path to FAT16 Volume: /home/jcolen19/cs4414/HW3/sampledisk16.raw
+
+print_entries:	Entry:	.          	10	0
+print_entries:	Entry:	..         	10	0
+print_entries:	Entry:	SOARING TXT	20	1378
+
+
+main:	CD Return Value:	1
+
+print_entries:	Entry:	.          	10	0
+print_entries:	Entry:	..         	10	0
+print_entries:	Entry:	SOARING TXT	20	1378
+
+
+print_entries:	Entry:	.          	10	0
+print_entries:	Entry:	..         	10	0
+print_entries:	Entry:	404-FAILJPG	20	30152
+print_entries:	Entry:	Bn	0f	-65536
+print_entries:	Entry:	b	0f	6881380
+print_entries:	Entry:	BALLOO~1JPG	20	65536
+print_entries:	Entry:	Bg	0f	-65536
+print_entries:	Entry:	c	0f	6357106
+print_entries:	Entry:	COMCAS~1JPG	20	65536
+print_entries:	Entry:	Bn	0f	-1
+print_entries:	Entry:	d	0f	7667816
+print_entries:	Entry:	DENSIT~1MPG	20	1210728
+print_entries:	Entry:	Bs	0f	-65536
+print_entries:	Entry:	e	0f	6619252
+print_entries:	Entry:	ELECTR~1JPG	20	32768
+print_entries:	Entry:	Cg	0f	-1
+print_entries:	Entry:	u	0f	7340138
+print_entries:	Entry:	e	0f	7274594
+print_entries:	Entry:	EPIC-F~1JPG	20	131072
+print_entries:	Entry:	C.	0f	-1
+print_entries:	Entry:	e	0f	7077993
+print_entries:	Entry:	e	0f	6488163
+print_entries:	Entry:	EPIC-F~2JPG	20	38230
+print_entries:	Entry:	C.	0f	-1
+print_entries:	Entry:	e	0f	7077993
+print_entries:	Entry:	e	0f	7733348
+print_entries:	Entry:	EPIC-F~3JPG	20	32768
+print_entries:	Entry:	Bt	0f	6750320
+print_entries:	Entry:	e	0f	7602273
+print_entries:	Entry:	EPIC-F~4JPG	20	65536
+print_entries:	Entry:	Ci	0f	-1
+print_entries:	Entry:	t	0f	6357094
+print_entries:	Entry:	e	0f	7274604
+print_entries:	Entry:	EP0C47~1JPG	20	65536
+print_entries:	Entry:	B-	0f	-1
+print_entries:	Entry:	e	0f	6553697
+print_entries:	Entry:	EP582E~1JPG	20	65536
+print_entries:	Entry:	Bt	0f	-1
+print_entries:	Entry:	e	0f	6881400
+print_entries:	Entry:	EP8DB7~1JPG	20	32768
+print_entries:	Entry:	Bd	0f	103
+print_entries:	Entry:	e	0f	7471221
+print_entries:	Entry:	EP0EC6~1JPG	20	65536
+print_entries:	Entry:	Cp	0f	-1
+print_entries:	Entry:	-	0f	6946862
+print_entries:	Entry:	e	0f	6619235
+print_entries:	Entry:	EP0DF7~1JPG	20	65536
+print_entries:	Entry:	Bs	0f	6750320
+print_entries:	Entry:	e	0f	7929960
+print_entries:	Entry:	EP3AAD~1JPG	20	32768
+print_entries:	Entry:	Cg	0f	-1
+print_entries:	Entry:	c	0f	7209065
+print_entries:	Entry:	e	0f	6619250
+print_entries:	Entry:	EP9373~1JPG	20	32768
+print_entries:	Entry:	Cl	0f	-1
+print_entries:	Entry:	a	0f	6881377
+print_entries:	Entry:	e	0f	7077989
+print_entries:	Entry:	EP9962~1JPG	20	32768
+print_entries:	Entry:	Cl	0f	-1
+print_entries:	Entry:	e	0f	6881377
+print_entries:	Entry:	e	0f	6684769
+print_entries:	Entry:	EPAA22~1JPG	20	24526
+print_entries:	Entry:	Cf	0f	-1
+print_entries:	Entry:	l	0f	2949241
+print_entries:	Entry:	e	0f	6881391
+print_entries:	Entry:	EP4165~1JPG	20	32768
+print_entries:	Entry:	Cw	0f	-1
+print_entries:	Entry:	d	0f	2949221
+print_entries:	Entry:	e	0f	7209061
+print_entries:	Entry:	EP0ED2~1JPG	20	32768
+print_entries:	Entry:	Af	0f	6750320
+print_entries:	Entry:	FURY-F~1JPG	20	65536
+print_entries:	Entry:	Bp	0f	-1
+print_entries:	Entry:	h	0f	6946862
+print_entries:	Entry:	HEARSE~1JPG	20	32768
+print_entries:	Entry:	Bw	0f	-1
+print_entries:	Entry:	i	0f	2949241
+print_entries:	Entry:	ICE-IC~1JPG	20	26294
+print_entries:	Entry:	Bi	0f	-1
+print_entries:	Entry:	r	0f	6357094
+print_entries:	Entry:	REFLEC~1JPG	20	65536
+print_entries:	Entry:	Bf	0f	-1
+print_entries:	Entry:	r	0f	2949230
+print_entries:	Entry:	REGIST~1JPG	20	6300
+
+
+main:	File Descriptor:	2
+
+
+Well folks the soaring season is upon us.  For the next two or
+three weeks we can expect good conditions, with lift from 3,000
+to 8,000 feet.  If you've always wanted to go up in a glider and
+sustain with the eagles (and vultures), now is your chance.
+On one weekend day each week (weather permitting) I'll take one
+or two people up.  This opportunity will last as long as the
+weather holds out.  Once the fall season is over, there will be
+no more thermaling until April-May.
+
+Mechanics:
+	Email me by Friday afternoon each week.
+		Leave your phone number. I'll call.
+
+	Max weight 200 lbs.
+	Min weight (front seat) 100lbs.
+	Min weight (back seat) 00lbs.
+	Front seat has the good view.
+	Max height 6'8".
+
+	You pay for tow to 3000', $20.
+	I pay for the rest, aircraft time, insurance, etc.
+
+	I'll call you and set up the time, expect an early 
+	afternoon flight, leaving in the late morning, arriving
+	home by 4PM.  I'll call on the departure morning to
+	confirm in case of marginal (or bad) weather.
+
+	If you are prone to motion sickness, or vertigo, please
+	don't sign up.  It will be an unpleasant experience for
+	both of us!
+
+	The airport is in Waynesboro, on the other side of the
+	Blue Ridge.  You will need to provide your own transport
+	there, or at least as far as Greenwood.
+
+Send me mail, and experience the thrill of riding an elevator
+into the sky.
+
+Andrew Grimshaw
+
+
+main:	Bytes Read:	1378
+
+
+main:	Close status:	1
+
+print_entries:	Entry:	.          	10	0
+print_entries:	Entry:	..         	10	0
+print_entries:	Entry:	YYZ5W      	10	0
+print_entries:	Entry:	WAB2M      	10	0
+print_entries:	Entry:	SV9WN      	10	0
+print_entries:	Entry:	SMW2J      	10	0
+print_entries:	Entry:	SMB3WK     	10	0
+print_entries:	Entry:	SL6FT      	10	0
+print_entries:	Entry:	RJS5U      	10	0
+print_entries:	Entry:	RCE2A      	10	0
+print_entries:	Entry:	RAT2Z      	10	0
+print_entries:	Entry:	PVL4J      	10	0
+print_entries:	Entry:	PRF4V      	10	0
+print_entries:	Entry:	PP2DF      	10	0
+print_entries:	Entry:	POH6E      	10	0
+print_entries:	Entry:	PMC8P      	10	0
+print_entries:	Entry:	PDS7C      	10	0
+print_entries:	Entry:	ODG4N      	10	0
+print_entries:	Entry:	MSD7R      	10	0
+print_entries:	Entry:	MPW8Y      	10	0
+print_entries:	Entry:	LL2EF      	10	0
+print_entries:	Entry:	KRM9Z      	10	0
+print_entries:	Entry:	KML2D      	10	0
+print_entries:	Entry:	KJL2Y      	10	0
+print_entries:	Entry:	KDM5Z      	10	0
+print_entries:	Entry:	KBC5V      	10	0
+print_entries:	Entry:	JPB4J      	10	0
+print_entries:	Entry:	JMH5ET     	10	0
+print_entries:	Entry:	JJP9K      	10	0
+print_entries:	Entry:	JIC7P      	10	0
+print_entries:	Entry:	JGJ3H      	10	0
+print_entries:	Entry:	JDW7E      	10	0
+print_entries:	Entry:	GRD7Y      	10	0
+print_entries:	Entry:	FLS4T      	10	0
+print_entries:	Entry:	DWA2X      	10	0
+print_entries:	Entry:	DSN9M      	10	0
+print_entries:	Entry:	DNM5Z      	10	0
+print_entries:	Entry:	DMS2PH     	10	0
+print_entries:	Entry:	DMK3D      	10	0
+print_entries:	Entry:	DMH2W      	10	0
+print_entries:	Entry:	DKB4J      	10	0
+print_entries:	Entry:	DHO2B      	10	0
+print_entries:	Entry:	DGM4D      	10	0
+print_entries:	Entry:	CRJ8J      	10	0
+print_entries:	Entry:	BMS7V      	10	0
+print_entries:	Entry:	BJA6A      	10	0
+print_entries:	Entry:	BHS2E      	10	0
+print_entries:	Entry:	AJW3M      	10	0
+print_entries:	Entry:	AG8T       	10	0
+print_entries:	Entry:	ABK2Y      	10	0
+main:	File Descriptor:	2
+
+main:	Bytes Read:	342
+
+Congratulations, you have gotten something working!
+
+Now that you can wade through the FAT with the greatest of ease, you can
+undercut all of those $30 shareware "Undelete" applications that market
+to people with digital camera and USB drive dysfunctions.  Go forth and
+take advantage of other people's misfortunes!
+
+Only $19.99!!!!
+
+-Duane
+
+
+main:	-1
+main:	-1
+main:	-1
+main:	-1
+main:	1
+main:	-1
+main:	-1
+main:	-1
+main:	-1
