@@ -2,29 +2,30 @@
 #define READ_API_H_
 
 #include <stdlib.h>
+#include <stdint.h>
 
 /**
 * Structure representing a directory entry in a FAT filesystem
 */
 typedef struct __attribute__((packed)) {
-    char dir_name[11];          //Short name
-    char dir_attr;              //ATTR_READ_ONLY    0x01
+    uint8_t dir_name[11];          //Short name
+    uint8_t dir_attr;              //ATTR_READ_ONLY    0x01
                                 //ATTR_HIDDEN       0x02
                                 //ATTR_SYSTEM       0x04
                                 //ATTR_VOLUME_ID    0x08
                                 //ATTR_DIRECTORY    0x10
                                 //ATTR_ARCHIVE      0x20
                                 //ATTR_LONG_NAME    0x0F
-    char dir_NTRes;             //Reserved for Windows NT
-    char dir_crtTimeTenth;      //Millsecond stamp at creation time
-    short int dir_crtTime;      //Time file was created
-    short int dir_crtDate;      //Date file was created
-    short int dir_lstAccDate;   //Last access date
-    short int dir_fstClusHI;    //High word of entry's first cluster number - 0 for FAT16
-    short int dir_wrtTime;      //Time of last write
-    short int dir_wrtDate;      //Date of last write
-    short int dir_fstClusLO;    //Low word of entry's first cluster numer
-    int dir_fileSize;           //32 bit word holding size in bytes
+    uint8_t dir_NTRes;             //Reserved for Windows NT
+    uint8_t dir_crtTimeTenth;      //Millsecond stamp at creation time
+    uint16_t dir_crtTime;      //Time file was created
+    uint16_t dir_crtDate;      //Date file was created
+    uint16_t dir_lstAccDate;   //Last access date
+    uint16_t dir_fstClusHI;    //High word of entry's first cluster number - 0 for FAT16
+    uint16_t dir_wrtTime;      //Time of last write
+    uint16_t dir_wrtDate;      //Date of last write
+    uint16_t dir_fstClusLO;    //Low word of entry's first cluster numer
+    uint32_t dir_fileSize;           //32 bit word holding size in bytes
 } dirEnt;
 
 

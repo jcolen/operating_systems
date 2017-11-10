@@ -426,18 +426,18 @@ int findDirEntry(dirEnt * dest, const dirEnt * current, char * name, int directo
         if (lfilename == NULL)  {   //Parse the short filename
             lfilename = malloc(sizeof(char) * 11);
             lfilename[0] = '\0';    //Null terminate for concatenations
-            char * padding = strchr(de.dir_name, 0x20); //beginning of padding
+            char * padding = strchr((char*)(de.dir_name), 0x20); //beginning of padding
             if (padding == NULL)
-                strncat(lfilename, de.dir_name, 8);
+                strncat(lfilename, (char*)(de.dir_name), 8);
             else
-                strncat(lfilename, de.dir_name, padding - de.dir_name);
-            padding = strchr(de.dir_name + 8, 0x20); //beginning of padding in extension
-            if (padding != de.dir_name + 8)
+                strncat(lfilename, (char*)(de.dir_name), padding - (char*)(de.dir_name));
+            padding = strchr((char*)(de.dir_name) + 8, 0x20); //beginning of padding in extension
+            if (padding != (char*)(de.dir_name) + 8)
                 strcat(lfilename, ".");
             if (padding == NULL)
-                strncat(lfilename, de.dir_name + 8, 3);
+                strncat(lfilename, (char*)(de.dir_name) + 8, 3);
             else
-                strncat(lfilename, de.dir_name + 8, padding - de.dir_name - 8);
+                strncat(lfilename, (char*)(de.dir_name) + 8, padding - (char*)(de.dir_name) - 8);
         }
         
         if(strcmp(lfilename, name) == 0)   {   //Filename match
