@@ -478,6 +478,8 @@ dirEnt * findDir(const char * path, const dirEnt * current)   {
         return NULL;
     }
 
+	//TODO make sure that the next entry is a directory not a file
+	
     //Load in next directory and recurse down
     int cluster = (dir_Ent.dir_fstClusHI << 2) | dir_Ent.dir_fstClusLO;
     dirEnt * next_dir = read_cluster_dirEnt(cluster);
