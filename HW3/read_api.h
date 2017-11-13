@@ -1,3 +1,17 @@
+/**
+*	Name: 		Jonathan Colen
+*	Email:		jc8kf@virginia.edu
+*	Class:		CS 4414
+*	Professor:	Andrew Grimshaw
+*	Assignment:	Machine Problem 3 
+*
+*   The purpose of this program is to implement an API for reading a 
+*   FAT formatted volume. This can be used to navigate through a FAT 
+*   filesystem.
+*
+*   This program can be compiled with read_api.c via "make".
+*/
+
 #ifndef READ_API_H_
 #define READ_API_H_
 

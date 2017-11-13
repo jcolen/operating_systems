@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "read_api.h"
 
 void print_entries(dirEnt * entries)    {
@@ -32,18 +33,35 @@ int main()  {
 
 	int ret = OS_cd("People");
 	printf("\nmain:\tCD Return Value:\t%d\n\n", ret);
-	entries = OS_readDir("PRF4V");
+	entries = OS_readDir(".");
     print_entries(entries);
 	printf("\n");
 
+    int count = 0;
+    while (1)   {
+        if (entries[count].dir_name[0] == 0)
+            break;
+        printf("main:\t%d\tEntry Name:\t%.11s\n", count, entries[count].dir_name);
+        char * subname = entries[count].dir_name;
+        char * padding = strchr(subname, 0x20);
+        if (padding != NULL)
+            subname[padding - subname] = '\0';
+        printf("main:\t%s\t%lu\n", subname, strlen(subname));
+        dirEnt* subentries = OS_readDir(subname);
+        print_entries(subentries);
+        free(subentries);
+        printf("\n");
+        count ++;
+    }
+    
 	free(entries);
 	printf("\n");	
-
+    
 	entries = OS_readDir("/Media");
     print_entries(entries);
 	free(entries);
 	printf("\n");
-
+    
 	int fd = OS_open("PRF4V/SOARING.TXT");
 	printf("\nmain:\tFile Descriptor:\t%d\n\n", fd);
 	
@@ -58,10 +76,12 @@ int main()  {
 
 	fd = OS_close(fd);
 	printf("\nmain:\tClose status:\t%d\n\n", fd);
-
+    
+    
     ret = OS_cd("/People");
     entries = OS_readDir("./");
     print_entries(entries);
+    
     fd = OS_open("../Congrats.txt");
     printf("main:\tFile Descriptor:\t%d\n\n", fd);
     bread = OS_read(fd, buff, nbytes, offset);
@@ -72,7 +92,24 @@ int main()  {
         buff[bread] = '\0';
      
     printf("%s\n", buff);
+    
+    int fd2 = OS_open("DHO2B/THE-GAME.TXT");
+    printf("main:\tFile Descriptor:\t%d\n\n", fd2);
+    bread = OS_read(fd2, (void*)buff, nbytes, offset);
+    printf("main:\tBytes Read:\t%d\n\n", bread);
+    if (bread < nbytes)
+        buff[bread] = '\0';
+    printf("%s\n", buff);
+
+    bread = OS_read(fd2, (void*)buff, nbytes, 4200);
+    printf("main:\tBytes Read:\t%d\n\n", bread);
+    if (bread < nbytes)
+        buff[bread] = '\0';
+    printf("%s\n", buff);
+
     OS_close(fd);
+    OS_close(fd2);
+
     
     printf("main:\t%d\n", OS_cd("asdfdsaf"));
     printf("main:\t%d\n", OS_cd("/asdfdsafd"));
@@ -84,6 +121,7 @@ int main()  {
     printf("main:\t%d\n", OS_close(-1));
     printf("main:\t%d\n", OS_close(40));
     printf("main:\t%d\n", OS_read(40, buff, 10000, 100));
+    printf("main:\t%d\n", OS_cd(("/People/PRF4V/SOARING.TXT/../")));
     
     return 0;
 }

@@ -1,7 +1,16 @@
 /**
+*	Name: 		Jonathan Colen
+*	Email:		jc8kf@virginia.edu
+*	Class:		CS 4414
+*	Professor:	Andrew Grimshaw
+*	Assignment:	Machine Problem 3 
 *
-*
-* API for reading a FAT formatted volume
+*   The purpose of this program is to implement an API for reading a 
+*   FAT formatted volume. This can be used to navigate through a FAT 
+*   filesystem. This particular file implements read operations 
+*   such as cd, open, read, close, and readDir, which is like ls
+*   
+*   This program can be compiled with read_api.h via "make".
 */
 
 #include <stdio.h>
@@ -195,7 +204,7 @@ dirEnt * read_cluster_dirEnt(int cluster)    {
     }
 
     int chain_length = cluster_chain_length(cluster);
-
+    
     int num_entries = chain_length * bpb_struct.BPB_SecPerClus * 
         bpb_struct.BPB_BytsPerSec / sizeof(dirEnt);
 
@@ -246,7 +255,7 @@ int init_fat()   {
     read(fat_fd, (char*)&ebr_fat16, sizeof(EBR_FAT16)); //Load EBR for FAT16
     lseek(fat_fd, sizeof(BPB_Structure), SEEK_SET);    //Reset offset for FAT32
     read(fat_fd, (char*)&ebr_fat32, sizeof(EBR_FAT32)); //Load EBR for FAT32
- 
+
     //Determine FAT16 or FAT32
     //Number of sectors occupied by root directory
     int RootDirSectors = ((bpb_struct.BPB_RootEntCnt * 32) + 
@@ -427,7 +436,7 @@ int findDirEntry(dirEnt * dest, const dirEnt * current, char * name, int directo
             lfilename = malloc(sizeof(char) * 11);
             lfilename[0] = '\0';    //Null terminate for concatenations
             char * padding = strchr((char*)(de.dir_name), 0x20); //beginning of padding
-            if (padding == NULL)
+            if (padding == NULL || padding - (char*)(de.dir_name) > 8)
                 strncat(lfilename, (char*)(de.dir_name), 8);
             else
                 strncat(lfilename, (char*)(de.dir_name), padding - (char*)(de.dir_name));
@@ -439,7 +448,7 @@ int findDirEntry(dirEnt * dest, const dirEnt * current, char * name, int directo
             else
                 strncat(lfilename, (char*)(de.dir_name) + 8, padding - (char*)(de.dir_name) - 8);
         }
-        
+       
         if(strcmp(lfilename, name) == 0)   {   //Filename match
             if (!directory || (directory && de.dir_attr & 0x10))    {
                 free(lfilename);
@@ -478,8 +487,6 @@ dirEnt * findDir(const char * path, const dirEnt * current)   {
         return NULL;
     }
 
-	//TODO make sure that the next entry is a directory not a file
-	
     //Load in next directory and recurse down
     int cluster = (dir_Ent.dir_fstClusHI << 2) | dir_Ent.dir_fstClusLO;
     dirEnt * next_dir = read_cluster_dirEnt(cluster);
@@ -554,7 +561,7 @@ int OS_open(const char * path)  {
     pathname[pathlen] = '\0';
 
     dirEnt * current = OS_readDir(pathname);
-    
+   
     dirEnt file;
     if (!findDirEntry(&file, current, filename, 0))
         return -1;
@@ -594,9 +601,6 @@ int OS_close(int fd) {
 }
 
 /**
-* TODO Figure out if we need to count bytes up to end of cluster/nbytes
-* TODO Do we need to null terminate the end of buf or not?
-* or up to EOF in file if that's first. Or if end of cluster is EOF
 * Read nbytes of a file from offset into buf
 * @param fildes A previously opened file
 * @param buf A buffer of at least nbyte size
@@ -684,7 +688,6 @@ dirEnt * OS_readDir(const char * dirname)  {
         if (err == -1)  
             return NULL;
     }
-
 
     dirEnt * current = cwd_entries;
 
