@@ -1,7 +1,35 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "read_api.h"
+#include <stdint.h>
+//#include "read_api.h"
+
+typedef struct __attribute__((packed)) {
+    uint8_t dir_name[11];          //Short name
+    uint8_t dir_attr;              //ATTR_READ_ONLY    0x01
+                                //ATTR_HIDDEN       0x02
+                                //ATTR_SYSTEM       0x04
+                                //ATTR_VOLUME_ID    0x08
+                                //ATTR_DIRECTORY    0x10
+                                //ATTR_ARCHIVE      0x20
+                                //ATTR_LONG_NAME    0x0F
+    uint8_t dir_NTRes;             //Reserved for Windows NT
+    uint8_t dir_crtTimeTenth;      //Millsecond stamp at creation time
+    uint16_t dir_crtTime;      //Time file was created
+    uint16_t dir_crtDate;      //Date file was created
+    uint16_t dir_lstAccDate;   //Last access date
+    uint16_t dir_fstClusHI;    //High word of entry's first cluster number - 0 for FAT16
+    uint16_t dir_wrtTime;      //Time of last write
+    uint16_t dir_wrtDate;      //Date of last write
+    uint16_t dir_fstClusLO;    //Low word of entry's first cluster numer
+    uint32_t dir_fileSize;           //32 bit word holding size in bytes
+} dirEnt;
+
+int OS_cd(const char * path);
+int OS_open(const char * path);
+int OS_close(int fd);
+int OS_read(int fildes, void * buf, int nbyte, int offset);
+dirEnt * OS_readDir(const char * dirname);
 
 void print_entries(dirEnt * entries)    {
 	int i = 0;
