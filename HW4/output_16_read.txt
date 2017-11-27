@@ -1,0 +1,748 @@
+main:	Size of dirEnt: 32
+main:	Path to FAT16 Volume: /home/jcolen19/cs4414/HW4/sampledisk16.raw
+
+print_entries:	Entry:	.          	10	0
+print_entries:	Entry:	..         	10	0
+print_entries:	Entry:	SOARING TXT	20	1378
+
+
+main:	CD Return Value:	1
+
+print_entries:	Entry:	.          	10	0
+print_entries:	Entry:	..         	10	0
+print_entries:	Entry:	YYZ5W      	10	0
+print_entries:	Entry:	WAB2M      	10	0
+print_entries:	Entry:	SV9WN      	10	0
+print_entries:	Entry:	SMW2J      	10	0
+print_entries:	Entry:	SMB3WK     	10	0
+print_entries:	Entry:	SL6FT      	10	0
+print_entries:	Entry:	RJS5U      	10	0
+print_entries:	Entry:	RCE2A      	10	0
+print_entries:	Entry:	RAT2Z      	10	0
+print_entries:	Entry:	PVL4J      	10	0
+print_entries:	Entry:	PRF4V      	10	0
+print_entries:	Entry:	PP2DF      	10	0
+print_entries:	Entry:	POH6E      	10	0
+print_entries:	Entry:	PMC8P      	10	0
+print_entries:	Entry:	PDS7C      	10	0
+print_entries:	Entry:	ODG4N      	10	0
+print_entries:	Entry:	MSD7R      	10	0
+print_entries:	Entry:	MPW8Y      	10	0
+print_entries:	Entry:	LL2EF      	10	0
+print_entries:	Entry:	KRM9Z      	10	0
+print_entries:	Entry:	KML2D      	10	0
+print_entries:	Entry:	KJL2Y      	10	0
+print_entries:	Entry:	KDM5Z      	10	0
+print_entries:	Entry:	KBC5V      	10	0
+print_entries:	Entry:	JPB4J      	10	0
+print_entries:	Entry:	JMH5ET     	10	0
+print_entries:	Entry:	JJP9K      	10	0
+print_entries:	Entry:	JIC7P      	10	0
+print_entries:	Entry:	JGJ3H      	10	0
+print_entries:	Entry:	JDW7E      	10	0
+print_entries:	Entry:	GRD7Y      	10	0
+print_entries:	Entry:	FLS4T      	10	0
+print_entries:	Entry:	DWA2X      	10	0
+print_entries:	Entry:	DSN9M      	10	0
+print_entries:	Entry:	DNM5Z      	10	0
+print_entries:	Entry:	DMS2PH     	10	0
+print_entries:	Entry:	DMK3D      	10	0
+print_entries:	Entry:	DMH2W      	10	0
+print_entries:	Entry:	DKB4J      	10	0
+print_entries:	Entry:	DHO2B      	10	0
+print_entries:	Entry:	DGM4D      	10	0
+print_entries:	Entry:	CRJ8J      	10	0
+print_entries:	Entry:	BMS7V      	10	0
+print_entries:	Entry:	BJA6A      	10	0
+print_entries:	Entry:	BHS2E      	10	0
+print_entries:	Entry:	AJW3M      	10	0
+print_entries:	Entry:	AG8T       	10	0
+print_entries:	Entry:	ABK2Y      	10	0
+
+main:	0	Entry Name:	.          
+main:	.	1
+print_entries:	Entry:	.          	10	0
+print_entries:	Entry:	..         	10	0
+print_entries:	Entry:	YYZ5W      	10	0
+print_entries:	Entry:	WAB2M      	10	0
+print_entries:	Entry:	SV9WN      	10	0
+print_entries:	Entry:	SMW2J      	10	0
+print_entries:	Entry:	SMB3WK     	10	0
+print_entries:	Entry:	SL6FT      	10	0
+print_entries:	Entry:	RJS5U      	10	0
+print_entries:	Entry:	RCE2A      	10	0
+print_entries:	Entry:	RAT2Z      	10	0
+print_entries:	Entry:	PVL4J      	10	0
+print_entries:	Entry:	PRF4V      	10	0
+print_entries:	Entry:	PP2DF      	10	0
+print_entries:	Entry:	POH6E      	10	0
+print_entries:	Entry:	PMC8P      	10	0
+print_entries:	Entry:	PDS7C      	10	0
+print_entries:	Entry:	ODG4N      	10	0
+print_entries:	Entry:	MSD7R      	10	0
+print_entries:	Entry:	MPW8Y      	10	0
+print_entries:	Entry:	LL2EF      	10	0
+print_entries:	Entry:	KRM9Z      	10	0
+print_entries:	Entry:	KML2D      	10	0
+print_entries:	Entry:	KJL2Y      	10	0
+print_entries:	Entry:	KDM5Z      	10	0
+print_entries:	Entry:	KBC5V      	10	0
+print_entries:	Entry:	JPB4J      	10	0
+print_entries:	Entry:	JMH5ET     	10	0
+print_entries:	Entry:	JJP9K      	10	0
+print_entries:	Entry:	JIC7P      	10	0
+print_entries:	Entry:	JGJ3H      	10	0
+print_entries:	Entry:	JDW7E      	10	0
+print_entries:	Entry:	GRD7Y      	10	0
+print_entries:	Entry:	FLS4T      	10	0
+print_entries:	Entry:	DWA2X      	10	0
+print_entries:	Entry:	DSN9M      	10	0
+print_entries:	Entry:	DNM5Z      	10	0
+print_entries:	Entry:	DMS2PH     	10	0
+print_entries:	Entry:	DMK3D      	10	0
+print_entries:	Entry:	DMH2W      	10	0
+print_entries:	Entry:	DKB4J      	10	0
+print_entries:	Entry:	DHO2B      	10	0
+print_entries:	Entry:	DGM4D      	10	0
+print_entries:	Entry:	CRJ8J      	10	0
+print_entries:	Entry:	BMS7V      	10	0
+print_entries:	Entry:	BJA6A      	10	0
+print_entries:	Entry:	BHS2E      	10	0
+print_entries:	Entry:	AJW3M      	10	0
+print_entries:	Entry:	AG8T       	10	0
+print_entries:	Entry:	ABK2Y      	10	0
+
+main:	1	Entry Name:	..         
+main:	..	2
+print_entries:	Entry:	LEXAR      	08	0
+print_entries:	Entry:	AM	0f	-1
+print_entries:	Entry:	MEDIA      	10	0
+print_entries:	Entry:	AP	0f	-1
+print_entries:	Entry:	PEOPLE     	10	0
+print_entries:	Entry:	AC	0f	116
+print_entries:	Entry:	CONGRATSTXT	20	342
+
+main:	2	Entry Name:	YYZ5W      
+main:	YYZ5W	5
+print_entries:	Entry:	.          	10	0
+print_entries:	Entry:	..         	10	0
+print_entries:	Entry:	THE-GAMETXT	20	4443
+
+main:	3	Entry Name:	WAB2M      
+main:	WAB2M	5
+print_entries:	Entry:	.          	10	0
+print_entries:	Entry:	..         	10	0
+print_entries:	Entry:	SOARING TXT	20	1378
+
+main:	4	Entry Name:	SV9WN      
+main:	SV9WN	5
+print_entries:	Entry:	.          	10	0
+print_entries:	Entry:	..         	10	0
+print_entries:	Entry:	Bx	0f	-1
+print_entries:	Entry:	R	0f	7602222
+print_entries:	Entry:	REAGAN~1TXT	20	360
+
+main:	5	Entry Name:	SMW2J      
+main:	SMW2J	5
+print_entries:	Entry:	.          	10	0
+print_entries:	Entry:	..         	10	0
+print_entries:	Entry:	QUOTE   TXT	20	201
+
+main:	6	Entry Name:	SMB3WK     
+main:	SMB3WK	6
+print_entries:	Entry:	.          	10	0
+print_entries:	Entry:	..         	10	0
+print_entries:	Entry:	JOKES   TXT	20	3832
+
+main:	7	Entry Name:	SL6FT      
+main:	SL6FT	5
+print_entries:	Entry:	.          	10	0
+print_entries:	Entry:	..         	10	0
+print_entries:	Entry:	GEMS    TXT	20	788
+
+main:	8	Entry Name:	RJS5U      
+main:	RJS5U	5
+print_entries:	Entry:	.          	10	0
+print_entries:	Entry:	..         	10	0
+print_entries:	Entry:	Bt	0f	-1
+print_entries:	Entry:	g	0f	3014766
+print_entries:	Entry:	GATE-C~1TXT	20	236
+
+main:	9	Entry Name:	RCE2A      
+main:	RCE2A	5
+print_entries:	Entry:	.          	10	0
+print_entries:	Entry:	..         	10	0
+print_entries:	Entry:	Bt	0f	-1
+print_entries:	Entry:	c	0f	3014771
+print_entries:	Entry:	COFFEE~1TXT	20	301
+
+main:	10	Entry Name:	RAT2Z      
+main:	RAT2Z	5
+print_entries:	Entry:	.          	10	0
+print_entries:	Entry:	..         	10	0
+print_entries:	Entry:	THISTLE TXT	20	177
+
+main:	11	Entry Name:	PVL4J      
+main:	PVL4J	5
+print_entries:	Entry:	.          	10	0
+print_entries:	Entry:	..         	10	0
+print_entries:	Entry:	THE-GAMETXT	20	4443
+
+main:	12	Entry Name:	PRF4V      
+main:	PRF4V	5
+print_entries:	Entry:	.          	10	0
+print_entries:	Entry:	..         	10	0
+print_entries:	Entry:	SOARING TXT	20	1378
+
+main:	13	Entry Name:	PP2DF      
+main:	PP2DF	5
+print_entries:	Entry:	.          	10	0
+print_entries:	Entry:	..         	10	0
+print_entries:	Entry:	REPEAT  TXT	20	279
+
+main:	14	Entry Name:	POH6E      
+main:	POH6E	5
+print_entries:	Entry:	.          	10	0
+print_entries:	Entry:	..         	10	0
+print_entries:	Entry:	Bx	0f	-1
+print_entries:	Entry:	R	0f	7602222
+print_entries:	Entry:	REAGAN~1TXT	20	360
+
+main:	15	Entry Name:	PMC8P      
+main:	PMC8P	5
+print_entries:	Entry:	.          	10	0
+print_entries:	Entry:	..         	10	0
+print_entries:	Entry:	QUOTE   TXT	20	201
+
+main:	16	Entry Name:	PDS7C      
+main:	PDS7C	5
+print_entries:	Entry:	.          	10	0
+print_entries:	Entry:	..         	10	0
+print_entries:	Entry:	JOKES   TXT	20	3832
+
+main:	17	Entry Name:	ODG4N      
+main:	ODG4N	5
+print_entries:	Entry:	.          	10	0
+print_entries:	Entry:	..         	10	0
+print_entries:	Entry:	GEMS    TXT	20	788
+
+main:	18	Entry Name:	MSD7R      
+main:	MSD7R	5
+print_entries:	Entry:	.          	10	0
+print_entries:	Entry:	..         	10	0
+print_entries:	Entry:	Bt	0f	-1
+print_entries:	Entry:	g	0f	3014766
+print_entries:	Entry:	GATE-C~1TXT	20	236
+
+main:	19	Entry Name:	MPW8Y      
+main:	MPW8Y	5
+print_entries:	Entry:	.          	10	0
+print_entries:	Entry:	..         	10	0
+print_entries:	Entry:	Bt	0f	-1
+print_entries:	Entry:	c	0f	3014771
+print_entries:	Entry:	COFFEE~1TXT	20	301
+
+main:	20	Entry Name:	LL2EF      
+main:	LL2EF	5
+print_entries:	Entry:	.          	10	0
+print_entries:	Entry:	..         	10	0
+print_entries:	Entry:	THISTLE TXT	20	177
+
+main:	21	Entry Name:	KRM9Z      
+main:	KRM9Z	5
+print_entries:	Entry:	.          	10	0
+print_entries:	Entry:	..         	10	0
+print_entries:	Entry:	THE-GAMETXT	20	4443
+
+main:	22	Entry Name:	KML2D      
+main:	KML2D	5
+print_entries:	Entry:	.          	10	0
+print_entries:	Entry:	..         	10	0
+print_entries:	Entry:	SOARING TXT	20	1378
+
+main:	23	Entry Name:	KJL2Y      
+main:	KJL2Y	5
+print_entries:	Entry:	.          	10	0
+print_entries:	Entry:	..         	10	0
+print_entries:	Entry:	REPEAT  TXT	20	279
+
+main:	24	Entry Name:	KDM5Z      
+main:	KDM5Z	5
+print_entries:	Entry:	.          	10	0
+print_entries:	Entry:	..         	10	0
+print_entries:	Entry:	Bx	0f	-1
+print_entries:	Entry:	R	0f	7602222
+print_entries:	Entry:	REAGAN~1TXT	20	360
+
+main:	25	Entry Name:	KBC5V      
+main:	KBC5V	5
+print_entries:	Entry:	.          	10	0
+print_entries:	Entry:	..         	10	0
+print_entries:	Entry:	QUOTE   TXT	20	201
+
+main:	26	Entry Name:	JPB4J      
+main:	JPB4J	5
+print_entries:	Entry:	.          	10	0
+print_entries:	Entry:	..         	10	0
+print_entries:	Entry:	JOKES   TXT	20	3832
+
+main:	27	Entry Name:	JMH5ET     
+main:	JMH5ET	6
+print_entries:	Entry:	.          	10	0
+print_entries:	Entry:	..         	10	0
+print_entries:	Entry:	GEMS    TXT	20	788
+
+main:	28	Entry Name:	JJP9K      
+main:	JJP9K	5
+print_entries:	Entry:	.          	10	0
+print_entries:	Entry:	..         	10	0
+print_entries:	Entry:	Bt	0f	-1
+print_entries:	Entry:	g	0f	3014766
+print_entries:	Entry:	GATE-C~1TXT	20	236
+
+main:	29	Entry Name:	JIC7P      
+main:	JIC7P	5
+print_entries:	Entry:	.          	10	0
+print_entries:	Entry:	..         	10	0
+print_entries:	Entry:	Bt	0f	-1
+print_entries:	Entry:	c	0f	3014771
+print_entries:	Entry:	COFFEE~1TXT	20	301
+
+main:	30	Entry Name:	JGJ3H      
+main:	JGJ3H	5
+print_entries:	Entry:	.          	10	0
+print_entries:	Entry:	..         	10	0
+print_entries:	Entry:	THISTLE TXT	20	177
+
+main:	31	Entry Name:	JDW7E      
+main:	JDW7E	5
+print_entries:	Entry:	.          	10	0
+print_entries:	Entry:	..         	10	0
+print_entries:	Entry:	THE-GAMETXT	20	4443
+
+main:	32	Entry Name:	GRD7Y      
+main:	GRD7Y	5
+print_entries:	Entry:	.          	10	0
+print_entries:	Entry:	..         	10	0
+print_entries:	Entry:	SOARING TXT	20	1378
+
+main:	33	Entry Name:	FLS4T      
+main:	FLS4T	5
+print_entries:	Entry:	.          	10	0
+print_entries:	Entry:	..         	10	0
+print_entries:	Entry:	REPEAT  TXT	20	279
+
+main:	34	Entry Name:	DWA2X      
+main:	DWA2X	5
+print_entries:	Entry:	.          	10	0
+print_entries:	Entry:	..         	10	0
+print_entries:	Entry:	Bx	0f	-1
+print_entries:	Entry:	R	0f	7602222
+print_entries:	Entry:	REAGAN~1TXT	20	360
+
+main:	35	Entry Name:	DSN9M      
+main:	DSN9M	5
+print_entries:	Entry:	.          	10	0
+print_entries:	Entry:	..         	10	0
+print_entries:	Entry:	QUOTE   TXT	20	201
+
+main:	36	Entry Name:	DNM5Z      
+main:	DNM5Z	5
+print_entries:	Entry:	.          	10	0
+print_entries:	Entry:	..         	10	0
+print_entries:	Entry:	JOKES   TXT	20	3832
+
+main:	37	Entry Name:	DMS2PH     
+main:	DMS2PH	6
+print_entries:	Entry:	.          	10	0
+print_entries:	Entry:	..         	10	0
+print_entries:	Entry:	GEMS    TXT	20	788
+
+main:	38	Entry Name:	DMK3D      
+main:	DMK3D	5
+print_entries:	Entry:	.          	10	0
+print_entries:	Entry:	..         	10	0
+print_entries:	Entry:	Bt	0f	-1
+print_entries:	Entry:	g	0f	3014766
+print_entries:	Entry:	GATE-C~1TXT	20	236
+
+main:	39	Entry Name:	DMH2W      
+main:	DMH2W	5
+print_entries:	Entry:	.          	10	0
+print_entries:	Entry:	..         	10	0
+print_entries:	Entry:	Bt	0f	-1
+print_entries:	Entry:	c	0f	3014771
+print_entries:	Entry:	COFFEE~1TXT	20	301
+
+main:	40	Entry Name:	DKB4J      
+main:	DKB4J	5
+print_entries:	Entry:	.          	10	0
+print_entries:	Entry:	..         	10	0
+print_entries:	Entry:	THISTLE TXT	20	177
+
+main:	41	Entry Name:	DHO2B      
+main:	DHO2B	5
+print_entries:	Entry:	.          	10	0
+print_entries:	Entry:	..         	10	0
+print_entries:	Entry:	THE-GAMETXT	20	4443
+
+main:	42	Entry Name:	DGM4D      
+main:	DGM4D	5
+print_entries:	Entry:	.          	10	0
+print_entries:	Entry:	..         	10	0
+print_entries:	Entry:	SOARING TXT	20	1378
+
+main:	43	Entry Name:	CRJ8J      
+main:	CRJ8J	5
+print_entries:	Entry:	.          	10	0
+print_entries:	Entry:	..         	10	0
+print_entries:	Entry:	REPEAT  TXT	20	279
+
+main:	44	Entry Name:	BMS7V      
+main:	BMS7V	5
+print_entries:	Entry:	.          	10	0
+print_entries:	Entry:	..         	10	0
+print_entries:	Entry:	Bx	0f	-1
+print_entries:	Entry:	R	0f	7602222
+print_entries:	Entry:	REAGAN~1TXT	20	360
+
+main:	45	Entry Name:	BJA6A      
+main:	BJA6A	5
+print_entries:	Entry:	.          	10	0
+print_entries:	Entry:	..         	10	0
+print_entries:	Entry:	QUOTE   TXT	20	201
+
+main:	46	Entry Name:	BHS2E      
+main:	BHS2E	5
+print_entries:	Entry:	.          	10	0
+print_entries:	Entry:	..         	10	0
+print_entries:	Entry:	JOKES   TXT	20	3832
+
+main:	47	Entry Name:	AJW3M      
+main:	AJW3M	5
+print_entries:	Entry:	.          	10	0
+print_entries:	Entry:	..         	10	0
+print_entries:	Entry:	GEMS    TXT	20	788
+
+main:	48	Entry Name:	AG8T       
+main:	AG8T	4
+print_entries:	Entry:	.          	10	0
+print_entries:	Entry:	..         	10	0
+print_entries:	Entry:	Bt	0f	-1
+print_entries:	Entry:	g	0f	3014766
+print_entries:	Entry:	GATE-C~1TXT	20	236
+
+main:	49	Entry Name:	ABK2Y      
+main:	ABK2Y	5
+print_entries:	Entry:	.          	10	0
+print_entries:	Entry:	..         	10	0
+print_entries:	Entry:	Bt	0f	-1
+print_entries:	Entry:	c	0f	3014771
+print_entries:	Entry:	COFFEE~1TXT	20	301
+
+
+print_entries:	Entry:	.          	10	0
+print_entries:	Entry:	..         	10	0
+print_entries:	Entry:	404-FAILJPG	20	30152
+print_entries:	Entry:	Bn	0f	-65536
+print_entries:	Entry:	b	0f	6881380
+print_entries:	Entry:	BALLOO~1JPG	20	65536
+print_entries:	Entry:	Bg	0f	-65536
+print_entries:	Entry:	c	0f	6357106
+print_entries:	Entry:	COMCAS~1JPG	20	65536
+print_entries:	Entry:	Bn	0f	-1
+print_entries:	Entry:	d	0f	7667816
+print_entries:	Entry:	DENSIT~1MPG	20	1210728
+print_entries:	Entry:	Bs	0f	-65536
+print_entries:	Entry:	e	0f	6619252
+print_entries:	Entry:	ELECTR~1JPG	20	32768
+print_entries:	Entry:	Cg	0f	-1
+print_entries:	Entry:	u	0f	7340138
+print_entries:	Entry:	e	0f	7274594
+print_entries:	Entry:	EPIC-F~1JPG	20	131072
+print_entries:	Entry:	C.	0f	-1
+print_entries:	Entry:	e	0f	7077993
+print_entries:	Entry:	e	0f	6488163
+print_entries:	Entry:	EPIC-F~2JPG	20	38230
+print_entries:	Entry:	C.	0f	-1
+print_entries:	Entry:	e	0f	7077993
+print_entries:	Entry:	e	0f	7733348
+print_entries:	Entry:	EPIC-F~3JPG	20	32768
+print_entries:	Entry:	Bt	0f	6750320
+print_entries:	Entry:	e	0f	7602273
+print_entries:	Entry:	EPIC-F~4JPG	20	65536
+print_entries:	Entry:	Ci	0f	-1
+print_entries:	Entry:	t	0f	6357094
+print_entries:	Entry:	e	0f	7274604
+print_entries:	Entry:	EP0C47~1JPG	20	65536
+print_entries:	Entry:	B-	0f	-1
+print_entries:	Entry:	e	0f	6553697
+print_entries:	Entry:	EP582E~1JPG	20	65536
+print_entries:	Entry:	Bt	0f	-1
+print_entries:	Entry:	e	0f	6881400
+print_entries:	Entry:	EP8DB7~1JPG	20	32768
+print_entries:	Entry:	Bd	0f	103
+print_entries:	Entry:	e	0f	7471221
+print_entries:	Entry:	EP0EC6~1JPG	20	65536
+print_entries:	Entry:	Cp	0f	-1
+print_entries:	Entry:	-	0f	6946862
+print_entries:	Entry:	e	0f	6619235
+print_entries:	Entry:	EP0DF7~1JPG	20	65536
+print_entries:	Entry:	Bs	0f	6750320
+print_entries:	Entry:	e	0f	7929960
+print_entries:	Entry:	EP3AAD~1JPG	20	32768
+print_entries:	Entry:	Cg	0f	-1
+print_entries:	Entry:	c	0f	7209065
+print_entries:	Entry:	e	0f	6619250
+print_entries:	Entry:	EP9373~1JPG	20	32768
+print_entries:	Entry:	Cl	0f	-1
+print_entries:	Entry:	a	0f	6881377
+print_entries:	Entry:	e	0f	7077989
+print_entries:	Entry:	EP9962~1JPG	20	32768
+print_entries:	Entry:	Cl	0f	-1
+print_entries:	Entry:	e	0f	6881377
+print_entries:	Entry:	e	0f	6684769
+print_entries:	Entry:	EPAA22~1JPG	20	24526
+print_entries:	Entry:	Cf	0f	-1
+print_entries:	Entry:	l	0f	2949241
+print_entries:	Entry:	e	0f	6881391
+print_entries:	Entry:	EP4165~1JPG	20	32768
+print_entries:	Entry:	Cw	0f	-1
+print_entries:	Entry:	d	0f	2949221
+print_entries:	Entry:	e	0f	7209061
+print_entries:	Entry:	EP0ED2~1JPG	20	32768
+print_entries:	Entry:	Af	0f	6750320
+print_entries:	Entry:	FURY-F~1JPG	20	65536
+print_entries:	Entry:	Bp	0f	-1
+print_entries:	Entry:	h	0f	6946862
+print_entries:	Entry:	HEARSE~1JPG	20	32768
+print_entries:	Entry:	Bw	0f	-1
+print_entries:	Entry:	i	0f	2949241
+print_entries:	Entry:	ICE-IC~1JPG	20	26294
+print_entries:	Entry:	Bi	0f	-1
+print_entries:	Entry:	r	0f	6357094
+print_entries:	Entry:	REFLEC~1JPG	20	65536
+print_entries:	Entry:	Bf	0f	-1
+print_entries:	Entry:	r	0f	2949230
+print_entries:	Entry:	REGIST~1JPG	20	6300
+
+
+main:	File Descriptor:	2
+
+
+Well folks the soaring season is upon us.  For the next two or
+three weeks we can expect good conditions, with lift from 3,000
+to 8,000 feet.  If you've always wanted to go up in a glider and
+sustain with the eagles (and vultures), now is your chance.
+On one weekend day each week (weather permitting) I'll take one
+or two people up.  This opportunity will last as long as the
+weather holds out.  Once the fall season is over, there will be
+no more thermaling until April-May.
+
+Mechanics:
+	Email me by Friday afternoon each week.
+		Leave your phone number. I'll call.
+
+	Max weight 200 lbs.
+	Min weight (front seat) 100lbs.
+	Min weight (back seat) 00lbs.
+	Front seat has the good view.
+	Max height 6'8".
+
+	You pay for tow to 3000', $20.
+	I pay for the rest, aircraft time, insurance, etc.
+
+	I'll call you and set up the time, expect an early 
+	afternoon flight, leaving in the late morning, arriving
+	home by 4PM.  I'll call on the departure morning to
+	confirm in case of marginal (or bad) weather.
+
+	If you are prone to motion sickness, or vertigo, please
+	don't sign up.  It will be an unpleasant experience for
+	both of us!
+
+	The airport is in Waynesboro, on the other side of the
+	Blue Ridge.  You will need to provide your own transport
+	there, or at least as far as Greenwood.
+
+Send me mail, and experience the thrill of riding an elevator
+into the sky.
+
+Andrew Grimshaw
+
+
+main:	Bytes Read:	1378
+
+
+main:	Close status:	1
+
+print_entries:	Entry:	.          	10	0
+print_entries:	Entry:	..         	10	0
+print_entries:	Entry:	YYZ5W      	10	0
+print_entries:	Entry:	WAB2M      	10	0
+print_entries:	Entry:	SV9WN      	10	0
+print_entries:	Entry:	SMW2J      	10	0
+print_entries:	Entry:	SMB3WK     	10	0
+print_entries:	Entry:	SL6FT      	10	0
+print_entries:	Entry:	RJS5U      	10	0
+print_entries:	Entry:	RCE2A      	10	0
+print_entries:	Entry:	RAT2Z      	10	0
+print_entries:	Entry:	PVL4J      	10	0
+print_entries:	Entry:	PRF4V      	10	0
+print_entries:	Entry:	PP2DF      	10	0
+print_entries:	Entry:	POH6E      	10	0
+print_entries:	Entry:	PMC8P      	10	0
+print_entries:	Entry:	PDS7C      	10	0
+print_entries:	Entry:	ODG4N      	10	0
+print_entries:	Entry:	MSD7R      	10	0
+print_entries:	Entry:	MPW8Y      	10	0
+print_entries:	Entry:	LL2EF      	10	0
+print_entries:	Entry:	KRM9Z      	10	0
+print_entries:	Entry:	KML2D      	10	0
+print_entries:	Entry:	KJL2Y      	10	0
+print_entries:	Entry:	KDM5Z      	10	0
+print_entries:	Entry:	KBC5V      	10	0
+print_entries:	Entry:	JPB4J      	10	0
+print_entries:	Entry:	JMH5ET     	10	0
+print_entries:	Entry:	JJP9K      	10	0
+print_entries:	Entry:	JIC7P      	10	0
+print_entries:	Entry:	JGJ3H      	10	0
+print_entries:	Entry:	JDW7E      	10	0
+print_entries:	Entry:	GRD7Y      	10	0
+print_entries:	Entry:	FLS4T      	10	0
+print_entries:	Entry:	DWA2X      	10	0
+print_entries:	Entry:	DSN9M      	10	0
+print_entries:	Entry:	DNM5Z      	10	0
+print_entries:	Entry:	DMS2PH     	10	0
+print_entries:	Entry:	DMK3D      	10	0
+print_entries:	Entry:	DMH2W      	10	0
+print_entries:	Entry:	DKB4J      	10	0
+print_entries:	Entry:	DHO2B      	10	0
+print_entries:	Entry:	DGM4D      	10	0
+print_entries:	Entry:	CRJ8J      	10	0
+print_entries:	Entry:	BMS7V      	10	0
+print_entries:	Entry:	BJA6A      	10	0
+print_entries:	Entry:	BHS2E      	10	0
+print_entries:	Entry:	AJW3M      	10	0
+print_entries:	Entry:	AG8T       	10	0
+print_entries:	Entry:	ABK2Y      	10	0
+main:	File Descriptor:	2
+
+main:	Bytes Read:	342
+
+Congratulations, you have gotten something working!
+
+Now that you can wade through the FAT with the greatest of ease, you can
+undercut all of those $30 shareware "Undelete" applications that market
+to people with digital camera and USB drive dysfunctions.  Go forth and
+take advantage of other people's misfortunes!
+
+Only $19.99!!!!
+
+-Duane
+
+
+main:	File Descriptor:	3
+
+main:	Bytes Read:	4443
+
+Subject: for your amusement
+To: csfaculty@uvacs.cs.virginia.edu
+Date: Thu, 23 Mar 1995 10:49:33 -0500 (EST)
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Status: RO
+Content-Length: 4226
+
+> Software - How Software Companies Die
+>         By: Orson Scott Card
+> 
+> The environment that nutures creative programmers kills management
+> and marketing types - and vice versa.  Programming is the Great Game.
+> It consumes you, body and soul.  When you're caught up in it, nothing
+> else matters.  When you emerge into daylight, you might well discover
+> that you're a hundred pounds overweight, your underwear is older than
+> the average first grader, and judging from the number of pizza boxes
+> lying around, it must be spring already.  But you don't care, because
+> your program runs, and the code is fast and clever and tight.  You won.
+> You're aware that some people think you're a nerd.  So what?  They're
+> not players.  They've never jousted with Windows or gone hand to hand
+> with DOS. To them C++ is a decent grade, almost a B - not a language.
+> They barely exist.  Like soldiers or artists, you don't care about the
+> opinions of civilians.  You're building something intricate and fine.
+> They'll never understand it.
+> 
+> BEEKEEPING
+> 
+> Here's the secret that every successful software company is based on:
+> You can domesticate programmers the way beekeepers tame bees.  You
+> can't exactly communicate with them, but you can get them to swarm in
+> one place and when they're not looking, you can carry off the honey.
+> You keep these bees from stinging by paying them money.  More money
+> than they know what to do with.  But that's less than you might think.
+> You see, all these programmers keep hearing their parents' voices in
+> their heads saying "When are you going to join the real world?"  All
+> you have to pay them is enough money that they can answer (also in
+> their heads) "Geez, Dad, I'm making more than you."  On average, this
+> is cheap.  And you get them to stay in the hive by giving them other
+> coders to swarm with.  The only person whose praise matters is another
+> programmer.  Less-talented programmers will idolize them; evenly
+> matched ones will challenge and goad one another; and if you want to
+> get a good swarm, you make sure that you have at least one certified
+> genius coder that they can all look up to, even if he glances at other
+> people's code only long enough to sneer at it. He's a Player, thinks
+> the junior programmer.  He looked at my code.  That is enough. If a
+> software company provides such a hive, the coders will give up sleep,
+> love, health, and clean laundry, while the company keeps the bulk of
+> the money.
+> 
+> OUT OF CONTROL
+> 
+> Here's the problem that ends up killing company after company.  All
+> successful software companies had, as their dominant personality, a
+> leader who nurtured programmers.  But no company can keep such a leader
+> forever. Either he cashes out, or he brings in management types who end
+> up driving him out, or he changes and becomes a management type himself.
+> One way or another, marketers get control.  But...control of what?
+> Instead of finding assembly lines of productive workers, they quickly
+> discover that their product is produced by utterly unpredictable,
+> uncooperative, disobedient, and worst of all, unattractive people who
+> resist all attempts at management.  Put them on a time clock, dress
+> them in suits, and they become sullen and start sabotaging the product.
+> Worst of all, you can sense that they are making fun of you with every
+> word they say.
+> 
+> SMOKED OUT
+> 
+> The shock is greater for the coder, though.  He suddenly finds that
+> alien creatures control his life.  Meetings, Schedules, Reports.  And
+> now someone demands that he PLAN all his programming and then stick to
+> the plan, never improving, never tweaking, and never, never touching
+> some other team's code. The lousy young programmer who once worshiped
+> him is now his tyrannical boss, a position he got because he played
+> golf with some sphincter in a suit. The hive has been ruined.  The best
+> coders leave.  And the marketers, comfortable now because they're
+> surrounded by power neckties and they have things under control, are
+> baffled that each new iteration of their software loses market share
+> as the code bloats and the bugs proliferate.  Got to get some better
+> packaging.  Yeah, that's it.
+
+
+main:	Bytes Read:	243
+
+surrounded by power neckties and they have things under control, are
+> baffled that each new iteration of their software loses market share
+> as the code bloats and the bugs proliferate.  Got to get some better
+> packaging.  Yeah, that's it.
+
+
+main:	-1
+main:	-1
+main:	-1
+main:	-1
+main:	1
+main:	-1
+main:	-1
+main:	-1
+main:	-1
+main:	-1
