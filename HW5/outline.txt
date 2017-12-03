@@ -1,0 +1,28 @@
+TYPE - ASCII Non-print, IMAGE
+MODE - Stream
+STRUCTURE - File
+COMMANDS
+    USER [username]
+        Begins login process
+        Use anonymous to initiate anonymous login
+    QUIT
+        Terminate connection
+    PORT a1,a2,a3,a4,p1,p2
+        Specifies host and port for next transfer   
+        a1.a2.a3.a4:p1*256+p2
+    TYPE [type-character]
+        Only allow TYPE I
+    MODE [mode-character]
+        Only allow MODE S
+    STRU [structure character]
+        Only allow STRU F 
+    RETR [remote-filename]
+        Begin transmission of filename from host. Precede by port
+    STOR [remote-filename]
+        Begin transmission of file to remote site
+    NOOP
+        Do nothing, return a response
+    LIST [remote-filespec]
+        If arg refers to a file, send information about that file
+        If arg is a directory, send information about files in that directory
+
