@@ -69,7 +69,7 @@ void change_type(int connectfd, char * buffer, char * type) {
     int match = sscanf(buffer, "TYPE %c %c", &newtype, &filler);
     char outbuffer[buff_size];
     strcpy(outbuffer, "501 Syntax error in parameters or arguments\r\n");
-    printf("TYPE %c %c\n", newtype, filler);
+    //printf("TYPE %c %c\n", newtype, filler);
     if (match > 0)  {
         if (newtype == 'I') {   //Only allow image mode
             //Switch type
@@ -101,7 +101,7 @@ void change_mode(int connectfd, char * buffer, char * mode) {
     int match = sscanf(buffer, "MODE %c", &newmode);
     char outbuffer[buff_size];
     strcpy(outbuffer, "501 Syntax error in parameters or arguments\r\n");   //Default response
-    printf("MODE %c\n", newmode);
+    //printf("MODE %c\n", newmode);
     if (match > 0)  {
         if (newmode == 'S') {   //Only allow stream mode
             *mode = newmode;
@@ -126,7 +126,7 @@ void change_stru(int connectfd, char * buffer, char * stru) {
     int match = sscanf(buffer, "STRU %c", &newstru);
     char outbuffer[buff_size];  //stores output to client
     strcpy(outbuffer, "501 Syntax error in parameters or arguments\r\n");   //Default response
-    printf("STRU %c\n", newstru);
+    //printf("STRU %c\n", newstru);
     if (match > 0)  {
         if (newstru == 'F') {   //Only allow file structure
             *stru = newstru;
@@ -154,8 +154,8 @@ void setup_port(int connectfd, char * buffer, struct sockaddr_in * data_sa, int 
     char outbuffer[buff_size];  //stores output to client
     strcpy(outbuffer, "501 Syntax error in parameters or arguments\r\n");   //Default response
     if (match == 6) {
-        printf("PORT %d,%d,%d,%d,%d,%d\n",
-            a1, a2, a3, a4, p1, p2);
+        //printf("PORT %d,%d,%d,%d,%d,%d\n",
+        //    a1, a2, a3, a4, p1, p2);
         //Initialize data in sockaddr structure
         memset(data_sa, 0, sizeof(*data_sa));
         data_sa->sin_family = AF_INET;
@@ -188,7 +188,7 @@ void ftp_retrieve(int connectfd, char * buffer, struct sockaddr_in data_sa, int 
     int match = sscanf(buffer, "RETR %s\n", filename);  //Scan for filename
     strcpy(outbuffer, "501 Syntax error in parameters or arguments\r\n");   //Default response
     if (match == 1) {
-        printf("RETR %s\n", filename);
+        //printf("RETR %s\n", filename);
         int fd = open(filename, O_RDONLY);
         if (fd < 0) {   //If file does not exist, exit
             strcpy(outbuffer, "550 Requested action not taken. File unavailable\r\n");
@@ -232,7 +232,7 @@ void ftp_store(int connectfd, char * buffer, struct sockaddr_in data_sa, int * p
     int match = sscanf(buffer, "STOR %s", filename);    //Scan for filename
     strcpy(outbuffer, "501 Syntax error in parameters or arguments\r\n");   //Default response
     if (match == 1) {
-        printf("STOR %s\n", filename);
+        //printf("STOR %s\n", filename);
         int fd = open(filename, O_WRONLY | O_CREAT);
         if (fd < 0) {   //If file cannot be created exit
             strcpy(outbuffer, "450 Requested action not taken. File could not be created\r\n");
@@ -282,7 +282,7 @@ void ftp_list(int connectfd, char * buffer, struct sockaddr_in data_sa, int * po
         strcpy(filename, ".");
     }
 
-    printf("LIST %s\n", filename);
+    //printf("LIST %s\n", filename);
 
     //Check if file/directory exists
     int fd = open(filename, O_RDONLY);
@@ -312,7 +312,7 @@ void ftp_list(int connectfd, char * buffer, struct sockaddr_in data_sa, int * po
             int err = execv(args[0], args);
             if (err == -1)  {
                 //Handle error
-                printf("ls -l returned exit code %d\n", err);
+                //printf("ls -l returned exit code %d\n", err);
                 strcpy(outbuffer, "450 Requested file action not taken\r\n");
                 send(connectfd, outbuffer, strlen(outbuffer), 0);
                 exit(1);
@@ -379,19 +379,19 @@ void server_loop(int socketfd)  {
                 stru = 'F';
                 strcpy(outbuffer, "221 Service closing control connection\r\n");
                 send(connectfd, outbuffer, strlen(outbuffer), 0);
-                printf("QUIT\n");
+                //printf("QUIT\n");
                 break;
             }
             //Do nothing if NOOP
             if (strncmp(buffer, "NOOP", 4) == 0)    {
                 send(connectfd, "200 Command okay\r\n", 18, 0);
-                printf("NOOP\n");
+                //printf("NOOP\n");
                 continue;
             }
             //Handle user login
             if (strncmp(buffer, "USER", 4) == 0)    {
                 int match = sscanf(buffer, "USER %s", username);
-                printf("USER %s\n", username);
+                //printf("USER %s\n", username);
                 if (match > 0)  {
                     login = 1;
                     sprintf(outbuffer, "230 User logged in as %s, proceed\r\n", username);
